@@ -1,7 +1,7 @@
 from flask import Flask, redirect, request, jsonify, url_for
 
 from db import User, db
-import json
+import json,os
 
 from flask_cors import CORS
 from dotenv import load_dotenv, find_dotenv
@@ -47,5 +47,5 @@ def delete_user(cityid, userid):
 if __name__ == '__main__':
     HOST_IP = os.getenv("HOST_IP")
     HOST_PORT = os.getenv("HOST_PORT")
-    DEBUG=os.getenv("DEBUG")
+    DEBUG = bool(eval(os.getenv("FLASK_DEBUG")))
     app.run(host=HOST_IP, port=HOST_PORT, use_reloader=False,debug=DEBUG)

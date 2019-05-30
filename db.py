@@ -4,10 +4,9 @@ import os
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 project_dir = os.path.dirname(os.path.abspath(__file__))
-
-if os.environ['DATABASE_URL']:
+try:
     database_file=os.environ['DATABASE_URL']
-elif os.getenv("DB")=='SQLITE':
+except Exception:
     database_file = "sqlite:///{}".format(os.path.join(project_dir, "database.db"))
 
 app = Flask(__name__)
