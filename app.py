@@ -1,8 +1,6 @@
 from flask import Flask, redirect, request, jsonify, url_for
-
 from db import User, db
 import json,os
-
 from flask_cors import CORS
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
