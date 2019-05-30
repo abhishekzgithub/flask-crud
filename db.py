@@ -7,7 +7,8 @@ project_dir = os.path.dirname(os.path.abspath(__file__))
 try:
     database_file=os.environ['DATABASE_URL']
 except Exception:
-    database_file = "sqlite:///{}".format(os.path.join(project_dir, "users.db"))
+    pass
+    #database_file = "sqlite:///{}".format(os.path.join(project_dir, "users.db"))
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
